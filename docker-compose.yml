@@ -4,7 +4,7 @@ services:
     build: ./docker-config/php
     container_name: app_php
     volumes:
-      - ./:/var/www
+      - ./resource:/var/www/resource
     working_dir: /var/www
     depends_on:
       - mysql
