@@ -31,5 +31,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
 });
 
+Route::get('/posts', 'PostController@index')->name('post.index');
+Route::get('/posts/create', 'PostController@create')->name('post.create');
+Route::get('/posts/{post}', 'PostController@show')->name('post.show');
+Route::post('/posts', 'PostController@store')->name('post.store');
+Route::put('/posts/{post}', 'PostController@update')->name('post.update');
+Route::get('/posts/{post}/edit', 'PostController@edit')->name('post.edit');
+Route::delete('/posts/{post}', 'PostController@delete')->name('post.delete');
 
 Route::get('/home', 'HomeController@index')->name('home');
