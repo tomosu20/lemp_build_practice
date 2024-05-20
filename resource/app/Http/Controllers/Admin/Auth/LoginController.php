@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
@@ -48,12 +49,11 @@ class LoginController extends Controller
         $this->guard()->logout();
 
         $request->session()->invalidate();
-
-        return view('admin.auth.login');
+        return redirect('/admin/login');
     }
 
     protected function guard()
     {
-        return \Auth::guard('admin');
+        return Auth::guard('admin');
     }
 }
