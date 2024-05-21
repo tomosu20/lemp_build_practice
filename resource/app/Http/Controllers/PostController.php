@@ -35,7 +35,7 @@ class PostController extends Controller
         $post->content = $request->content;
         $post->save();
 
-        return view('post.index', ['posts' => Post::all()]);
+        return redirect(route('post.index'));
     }
 
     public function edit(Post $post)
